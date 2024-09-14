@@ -1,0 +1,45 @@
+# Node modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+/.pnp
+.pnp.js
+
+# TypeScript build artifacts
+dist/
+build/
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Yarn v1 cache/lock files
+.yarn/
+yarn.lock
+
+# Env files (you don't want to commit sensitive data)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor and IDE files
+.vscode/
+.idea/
+
+# MacOS system files
+.DS_Store
+
+# Coverage directory (for testing coverage)
+coverage/
+
+# Temporary files
+*.tmp
+*.swp
+*.bak
