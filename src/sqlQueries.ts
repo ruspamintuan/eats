@@ -38,3 +38,7 @@ export const GET_SPECIFIC_LEADS = (params: Rows) => {
     queryParams: queryParams,
   };
 };
+
+export const GET_LEAD_BY_ID: string = "SELECT * FROM leads where id = ?";
+
+export const INSERT_LEAD = "INSERT INTO leads (name, email, mobile, postcode, services) VALUES (?, ?, ?, ?, ?)";

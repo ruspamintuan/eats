@@ -13,3 +13,7 @@ export type ExpectedRows = {
   mobile: string;
   postcode: string;
 };
+
+export type RowWithID = ExpectedRows & {
+  id: number;
+};
