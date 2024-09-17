@@ -8,7 +8,6 @@ initializeDb();
 
 const app = express();
 
-// Set up the /graphql endpoint
 app.use(
   "/graphql",
   graphqlHTTP({

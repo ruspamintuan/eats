@@ -77,7 +77,7 @@ const QueryType = new GraphQLObjectType({
       },
     },
     lead: {
-      description: "Retrieve lead data based on input",
+      description: "Retrieve lead data based on id",
       type: LeadsType,
       args: {
         id: {
@@ -160,7 +160,6 @@ const MutationType = new GraphQLObjectType({
 // GraphQL schema
 const schema = new GraphQLSchema({
   query: QueryType,
-  // TODO: Mutation register
   mutation: MutationType,
 });
 

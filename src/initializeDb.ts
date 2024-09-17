@@ -1,4 +1,5 @@
 import { openDb } from "./db";
+import { INSERT_LEAD } from "./sqlQueries";
 
 // Create table if not yet existing
 export const initializeDb = () => {
@@ -16,9 +17,32 @@ export const initializeDb = () => {
       )
     `);
 
-    db.close((err) => {
-      if (err) {
-        console.log("Error closing SQLite database:", err.message);
+    db.get("SELECT COUNT(*) AS count FROM leads WHERE email = 'john@example.com'", (_, row) => {
+      type RowType = {
+        count: number;
+      };
+      const rowCount = row as RowType;
+
+      if (rowCount.count === 0) {
+        // Insert default john@example.com for unit testing
+        db.run(INSERT_LEAD, ["John Doe", "john@example.com", "123456789", "12345", JSON.stringify(["delivery"])], (err) => {
+          if (err) {
+            console.log("Error inserting default lead:", err.message);
+          } else {
+            console.log("Inserted default lead");
+          }
+          db.close((err) => {
+            if (err) {
+              console.log("Error closing SQLite database:", err.message);
+            }
+          });
+        });
+      } else {
+        db.close((err) => {
+          if (err) {
+            console.log("Error closing SQLite database:", err.message);
+          }
+        });
       }
     });
   });

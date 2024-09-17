@@ -1,13 +1,12 @@
 import { Rows } from "./types";
-
-export const GET_LEADS = "SELECT * FROM leads";
+export const GET_LEADS: string = "SELECT * FROM leads";
 
 export const GET_SPECIFIC_LEADS = (params: Rows) => {
   let filterCondition = "";
   const queryParams: string[] = [];
 
   if (params.email) {
-    filterCondition += filterCondition ? " AND " : " WHERE ";
+    filterCondition += " WHERE ";
     filterCondition += "email = ? ";
     queryParams.push(params.email);
   }
@@ -16,7 +15,6 @@ export const GET_SPECIFIC_LEADS = (params: Rows) => {
     filterCondition += "name = ? ";
     queryParams.push(params.name);
   }
-  console.log("Filter", filterCondition);
   if (params.mobile) {
     filterCondition += filterCondition ? " AND " : " WHERE ";
     filterCondition += "mobile = ? ";
@@ -41,4 +39,4 @@ export const GET_SPECIFIC_LEADS = (params: Rows) => {
 
 export const GET_LEAD_BY_ID: string = "SELECT * FROM leads where id = ?";
 
-export const INSERT_LEAD = "INSERT INTO leads (name, email, mobile, postcode, services) VALUES (?, ?, ?, ?, ?)";
+export const INSERT_LEAD: string = "INSERT INTO leads (name, email, mobile, postcode, services) VALUES (?, ?, ?, ?, ?)";
