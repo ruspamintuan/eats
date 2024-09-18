@@ -129,8 +129,8 @@ yarn build
 
 - **Usage**:
   - Provides basic commands to start the server and interact with it via GraphQL.
-  - For the register mutation, you can provide multiple values for the `services` field. Just make sure they are separated by a comma(,).
-    - Example: `"delivery,payment"`
+  - For the register mutation, you can provide multiple values for the `services` field. Just make sure they are in an array separated by a comma(,).
+    - Example: `["delivery","payment"]`
 - **Setup Instructions**:
   - Ensure that the file `mydb.sqlite` is in the root folder of the project. If deleted, please re-create the file with the same name. As mentioned
     [`above`](#default-data), a default customer data will be inserted.
