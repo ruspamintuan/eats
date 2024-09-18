@@ -42,7 +42,7 @@ describe("openDb", () => {
     expect(db).to.have.all.keys(["run", "serialize", "close"]);
   });
 
-  it("should log error if there is an issue opening the database", () => {
+  it("Check logging of error if there is an issue opening the database", () => {
     // Fake an error during database opening
     sqlite3Stub.callsFake(function (_filename, _mode, callback) {
       if (callback) {
